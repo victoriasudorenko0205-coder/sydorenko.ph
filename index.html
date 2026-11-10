@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>sydorenko.ph — фотограф, запис на зйомку</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,500;1,500&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--bg:#FFFDFD;--surface:#FFFFFF;--ink:#000000;--mute:#5E5A5C;--line:#F3D6E0;--accent:#F5A8C0;--on-accent:#000000;--soft:#FFEFF4;--deep:#D4547F;
+--serif:"Bodoni Moda","Didot","Times New Roman",serif;--sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:none){:root:not([data-theme="light"]){--bg:#2A1D23;--surface:#35252C;--ink:#F8E9EC;--mute:#C7A8B1;--line:#52393F;--accent:#E9A0B4;--on-accent:#3A1A25;--soft:#402C34;--deep:#E9A0B4;color-scheme:dark}}
+:root[data-theme="dark"]{--deep:#E9A0B4;--bg:#2A1D23;--surface:#35252C;--ink:#F8E9EC;--mute:#C7A8B1;--line:#52393F;--accent:#E9A0B4;--on-accent:#3A1A25;--soft:#402C34;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--sans)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+h2{font:500 clamp(1.8rem,5vw,2.6rem)/1.15 var(--serif);margin:0 0 28px}
+.hero{min-height:88vh;display:grid;place-items:center;padding:40px 0}
+.frame{position:relative;width:100%;padding:clamp(48px,12vw,110px) clamp(20px,6vw,70px);text-align:center}
+.frame i{position:absolute;width:34px;height:34px;border:2px solid var(--deep)}
+.frame i:nth-child(1){top:0;left:0;border-right:0;border-bottom:0}
+.frame i:nth-child(2){top:0;right:0;border-left:0;border-bottom:0}
+.frame i:nth-child(3){bottom:0;left:0;border-right:0;border-top:0}
+.frame i:nth-child(4){bottom:0;right:0;border-left:0;border-top:0}
+.hero h1{font:500 clamp(2.6rem,11vw,6.4rem)/1 var(--serif);letter-spacing:-.02em;margin:0 0 18px}
+.hero p{max-width:34ch;margin:0 auto 30px;color:var(--mute);font-size:1.1rem}
+.btn{display:inline-block;background:var(--accent);color:var(--on-accent);border:0;border-radius:999px;padding:14px 28px;font:700 1rem var(--sans);text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);margin-left:8px}
+.btn:hover{filter:brightness(1.08)}
+.price-list{display:grid;gap:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:1fr auto;gap:6px 20px;padding:24px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.row h3{font:500 1.5rem var(--serif);margin:0}
+.row .meta{grid-column:1;color:var(--mute);margin:0}
+.row .sum{font:500 1.7rem var(--serif);grid-row:1;grid-column:2}
+.note{margin-top:22px;padding:16px 18px;background:var(--soft);border-radius:12px;color:var(--ink)}
+.note p{margin:0 0 4px}.note p:last-child{margin:0}
+.extra{margin-top:36px}
+.extra .row{border-top:0}
+.form{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(18px,4vw,34px);display:grid;gap:26px}
+fieldset{border:0;padding:0;margin:0}
+legend{font-weight:700;margin-bottom:10px;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:block;padding:10px 16px;border:1.5px solid var(--line);border-radius:10px;cursor:pointer;background:var(--bg);font-size:.95rem;line-height:1.3;text-align:center}
+.chip span small{display:block;color:var(--mute);font-size:.78rem}
+.chip input:checked+span{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.chip input:checked+span small{color:inherit}
+.chip input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.chip input:disabled+span{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label.f{display:grid;gap:6px;font-weight:500;font-size:.95rem}
+input[type=text],input[type=tel],textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}
+.check{display:flex;gap:10px;align-items:center}
+.check input{width:20px;height:20px;accent-color:var(--accent)}
+.total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);padding-top:18px;gap:12px;flex-wrap:wrap}
+.total b{font:500 1.6rem var(--serif)}
+.msg{display:none;padding:14px 16px;border-radius:10px;background:var(--soft)}
+.msg.err{display:block;border:1.5px solid #C0463A}
+.msg.ok{display:block}
+.steps{counter-reset:s;display:grid;gap:16px;padding:0;list-style:none;margin:0 0 56px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:14px}
+.steps li::before{content:counter(s);font:500 1.6rem var(--serif);color:var(--deep);border-right:1px solid var(--line)}
+.steps b{display:block}
+.final{text-align:center;padding:64px 0 90px}
+.final blockquote{font:italic 500 clamp(1.5rem,4.5vw,2.4rem)/1.3 var(--serif);margin:0 auto 28px;max-width:22ch}
+footer{text-align:center;color:var(--mute);font-size:.9rem;padding:0 0 40px}
+@media (max-width:620px){.fields{grid-template-columns:1fr}.row{grid-template-columns:1fr}.row .sum{grid-row:auto;grid-column:1}.btn.ghost{margin:10px 0 0}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<div class="frame"><i></i><i></i><i></i><i></i>
+<h1>sydorenko.ph</h1>
+<p>Фотограф. Живі кадри, у яких ви виглядаєте собою.</p>
+<a class="btn" href="#book">Записатися на зйомку</a><a class="btn ghost" href="https://www.instagram.com/sy.dorenko.ph" target="_blank" rel="noopener">Роботи в Instagram</a>
+</div></div></header>
+
+<main>
+<section id="works"><div class="wrap">
+<h2>Мої роботи</h2>
+<p style="max-width:50ch;color:var(--mute);margin:0 0 22px">Усі актуальні зйомки я публікую в Instagram. Подивіться, як працюю зі світлом, позами та емоціями.</p>
+<a class="btn" href="https://www.instagram.com/sy.dorenko.ph" target="_blank" rel="noopener">@sy.dorenko.ph</a>
+</div></section>
+
+<section id="services"><div class="wrap">
+<h2>Послуги</h2>
+<div class="price-list">
+<div class="row"><h3>Індивідуальна зйомка</h3><div class="sum">800 грн</div><p class="meta">1 година · 80–100 оброблених фото</p></div>
+<div class="row"><h3>Love story</h3><div class="sum">1200 грн</div><p class="meta">1,5 години · 100–150 оброблених фото</p></div>
+<div class="row"><h3>Сімейна зйомка</h3><div class="sum">1200 грн</div><p class="meta">100–150 оброблених фото</p></div>
+</div>
+<div class="note"><p>Студія оплачується окремо.</p><p>Допомагаю з вибором локації та образів.</p></div>
+<div class="extra"><h2 style="font-size:1.5rem;margin-bottom:0">Додатково</h2>
+<div class="price-list"><div class="row"><h3>Макіяж</h3><div class="sum">500–1000 грн</div><p class="meta">Вартість залежить від складності роботи</p></div></div></div>
+</div></section>
+
+<section id="book"><div class="wrap">
+<h2>Запис на зйомку</h2>
+<form class="form" id="form" novalidate>
+<fieldset><legend>Послуга</legend><div class="chips" id="svc"></div></fieldset>
+<fieldset><legend>Дата</legend><div class="chips" id="dates"></div></fieldset>
+<fieldset><legend>Час</legend><div class="chips" id="times"><span style="color:var(--mute)">Спочатку оберіть дату</span></div></fieldset>
+<div class="check"><input type="checkbox" id="mk"><label for="mk">Додати макіяж (500–1000 грн)</label></div>
+<div class="fields">
+<label class="f">Ім’я<input type="text" id="name" autocomplete="name"></label>
+<label class="f">Телефон або Instagram<input type="text" id="contact" autocomplete="tel"></label>
+</div>
+<label class="f">Побажання (локація, образи, кількість людей)<textarea id="wish" rows="3"></textarea></label>
+<div class="total"><span>Орієнтовна вартість<br><small style="color:var(--mute)">без студії</small></span><b id="sum">—</b></div>
+<div class="msg" id="msg" role="status"></div>
+<button class="btn" type="submit" id="send">Надіслати запис</button>
+<small style="color:var(--mute)">Після відправки я напишу вам, щоб підтвердити час.</small>
+</form>
+</div></section>
+
+<section><div class="wrap">
+<h2>Як усе проходить</h2>
+<ol class="steps">
+<li><div><b>Ви обираєте дату й час</b>Надсилаєте заявку тут.</div></li>
+<li><div><b>Обговорюємо деталі</b>Підбираємо локацію й образи, за потреби — студію та макіяж.</div></li>
+<li><div><b>Зйомка</b>Без поспіху й напружених поз: я підказую, ви просто будете собою.</div></li>
+<li><div><b>Готові фото</b>Ви отримуєте оброблені кадри в обіцяній кількості.</div></li>
+</ol>
+<div class="final"><blockquote>Кадри, до яких хочеться повертатися.</blockquote>
+<a class="btn" href="#book">Обрати дату</a></div>
+</div></section>
+</main>
+<footer>© <span id="y"></span> sydorenko.ph</footer>
+
+<script>
+// Налаштування: заброньовані слоти. Формат: "2026-11-12": ["10:00","14:00"]
+var BOOKED={};
+var TIMES=["10:00","12:00","14:00","16:00"];
+var DAYS=21;
+var SERVICES=[
+{id:"Індивідуальна зйомка (1 год)",p:800,s:"800 грн"},
+{id:"Love story (1,5 год)",p:1200,s:"1200 грн"},
+{id:"Сімейна зйомка",p:1200,s:"1200 грн"}];
+var WD=["нд","пн","вт","ср","чт","пт","сб"],MN=["січ","лют","бер","кві","тра","чер","лип","сер","вер","жов","лис","гру"];
+var $=function(i){return document.getElementById(i)};
+$("y").textContent=new Date().getFullYear();
+function chip(type,name,val,label,sub,dis){return '<label class="chip"><input type="'+type+'" name="'+name+'" value="'+val+'"'+(dis?' disabled':'')+'><span>'+label+(sub?'<small>'+sub+'</small>':'')+'</span></label>'}
+function iso(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+$("svc").innerHTML=SERVICES.map(function(s,i){return chip("radio","svc",i,s.id,s.s)}).join("");
+var now=new Date(),h="";
+for(var i=1;i<=DAYS;i++){var d=new Date(now.getFullYear(),now.getMonth(),now.getDate()+i);
+h+=chip("radio","date",iso(d),d.getDate()+" "+MN[d.getMonth()],WD[d.getDay()])}
+$("dates").innerHTML=h;
+function val(n){var e=document.querySelector('input[name="'+n+'"]:checked');return e?e.value:null}
+function fillTimes(){var d=val("date");if(!d)return;var b=BOOKED[d]||[];
+$("times").innerHTML=TIMES.map(function(t){return chip("radio","time",t,t,"",b.indexOf(t)>-1)}).join("")}
+function calc(){var s=val("svc"),mk=$("mk").checked;if(s===null){$("sum").textContent="—";return}
+var p=SERVICES[s].p,t=p+(mk?" + 500–1000":"");
+$("sum").textContent=mk?(p+500)+"–"+(p+1000)+" грн":p+" грн"}
+$("form").addEventListener("change",function(e){if(e.target.name==="date")fillTimes();calc()});
+function fmt(d){var x=new Date(d+"T00:00");return x.getDate()+" "+MN[x.getMonth()]+" ("+WD[x.getDay()]+")"}
+$("form").addEventListener("submit",function(e){e.preventDefault();
+var s=val("svc"),d=val("date"),t=val("time"),n=$("name").value.trim(),c=$("contact").value.trim(),m=$("msg"),btn=$("send");
+var miss=[];if(s===null)miss.push("послугу");if(!d)miss.push("дату");if(d&&!t)miss.push("час");if(!n)miss.push("ім’я");if(!c)miss.push("контакт");
+if(miss.length){m.className="msg err";m.textContent="Заповніть: "+miss.join(", ")+".";return}
+var data={service:SERVICES[s].id,date:fmt(d),time:t,makeup:$("mk").checked,name:n,contact:c,wish:$("wish").value.trim(),total:$("sum").textContent};
+btn.disabled=true;btn.textContent="Надсилаю…";
+fetch("/.netlify/functions/booking",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)})
+.then(function(r){if(!r.ok)throw 0;m.className="msg ok";m.textContent="Дякую! Заявку отримано. Я напишу вам, щоб підтвердити час.";$("form").reset();$("sum").textContent="—";$("times").innerHTML='<span style="color:var(--mute)">Спочатку оберіть дату</span>'})
+.catch(function(){m.className="msg err";m.innerHTML='Не вдалося надіслати заявку. Напишіть мені в <a href="https://ig.me/m/sy.dorenko.ph" target="_blank" rel="noopener">Instagram</a>.'})
+.then(function(){btn.disabled=false;btn.textContent="Надіслати запис"})
+});
+</script>
+</body>
+</html>
